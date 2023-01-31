@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:instaclone/home-page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,6 +15,13 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
+        appBarTheme: const AppBarTheme(
+          elevation: 1,
+          color: Colors.white,
+          iconTheme: IconThemeData(
+            color: Color.fromRGBO(40, 40, 40, 1),
+          ),
+        ),
         primarySwatch: Colors.blue,
       ),
       home: MyHomePage(),
@@ -32,6 +40,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     // TODO: implement build
     return Scaffold(
+      body: const HomePage(),
       bottomNavigationBar: BottomAppBar(
         child: Row(
           children: [
