@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:instaclone/home-page.dart';
+import 'package:instaclone/search_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,9 +16,12 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
+        iconTheme: const IconThemeData(
+          color: Color.fromRGBO(40, 40, 40, 1),
+        ),
         appBarTheme: const AppBarTheme(
           elevation: 1,
-          color: Colors.white,
+          color: Colors.black,
           iconTheme: IconThemeData(
             color: Color.fromRGBO(40, 40, 40, 1),
           ),
@@ -36,75 +40,117 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int currentPage = 0;
+  static final List<Widget> _WidgetOptions = <Widget>[
+    const HomePage(),
+    const SearchPage(),
+  ];
+  void _onItemTapped(int index) {
+    setState(() {
+      currentPage = index;
+      print(currentPage);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
     return Scaffold(
-      body: const HomePage(),
-      bottomNavigationBar: BottomAppBar(
-        child: Row(
-          children: [
-            const Spacer(),
-            IconButton(
-              onPressed: () {
-                setState(() {
-                  currentPage = 0;
-                });
-              },
-              icon: Icon(
-                Icons.home,
-                color: currentPage == 0
-                    ? const Color.fromRGBO(203, 71, 101, 1)
-                    : const Color.fromRGBO(40, 40, 40, 1),
-              ),
-            ),
-            const Spacer(),
-            IconButton(
-              onPressed: () {
-                setState(() {
-                  currentPage = 1;
-                });
-              },
-              icon: Icon(
-                Icons.search,
-                color: currentPage == 1
-                    ? const Color.fromRGBO(203, 71, 101, 1)
-                    : const Color.fromRGBO(40, 40, 40, 1),
-              ),
-            ),
-            const Spacer(),
-            IconButton(
-              onPressed: () {},
-              icon: Icon(
-                Icons.ondemand_video,
-                color: currentPage == 2
-                    ? const Color.fromRGBO(203, 71, 101, 1)
-                    : const Color.fromRGBO(40, 40, 40, 1),
-              ),
-            ),
-            const Spacer(),
-            IconButton(
-              onPressed: () {},
-              icon: Icon(
-                Icons.card_travel,
-                color: currentPage == 3
-                    ? const Color.fromRGBO(203, 71, 101, 1)
-                    : const Color.fromRGBO(40, 40, 40, 1),
-              ),
-            ),
-            const Spacer(),
-            IconButton(
-              onPressed: () {},
-              icon: Icon(
-                Icons.person,
-                color: currentPage == 4
-                    ? const Color.fromRGBO(203, 71, 101, 1)
-                    : const Color.fromRGBO(40, 40, 40, 1),
-              ),
-            ),
-            const Spacer(),
-          ],
-        ),
+      body: _WidgetOptions[currentPage],
+      // bottomNavigationBar: BottomAppBar(
+      //   color: Colors.black,
+      //   child: Row(
+      //     children: [
+      //       const Spacer(),
+      //       IconButton(
+      //         onPressed: () {
+      //           setState(() {
+      //             currentPage = 0;
+      //           });
+      //         },
+      //         icon: Icon(
+      //           Icons.home,
+      //           color: currentPage == 0
+      //               ? const Color.fromRGBO(203, 71, 101, 1)
+      //               : Colors.white,
+      //         ),
+      //       ),
+      //       const Spacer(),
+      //       IconButton(
+      //         onPressed: () {
+      //           setState(() {
+      //             currentPage = 1;
+      //           });
+      //         },
+      //         icon: Icon(
+      //           Icons.search,
+      //           color: currentPage == 1
+      //               ? const Color.fromRGBO(203, 71, 101, 1)
+      //               : Colors.white,
+      //         ),
+      //       ),
+      //       const Spacer(),
+      //       IconButton(
+      //         onPressed: () {},
+      //         icon: Icon(
+      //           Icons.ondemand_video,
+      //           color: currentPage == 2
+      //               ? const Color.fromRGBO(203, 71, 101, 1)
+      //               : Colors.white,
+      //         ),
+      //       ),
+      //       const Spacer(),
+      //       IconButton(
+      //         onPressed: () {},
+      //         icon: Icon(
+      //           Icons.favorite_border,
+      //           color: currentPage == 3
+      //               ? const Color.fromRGBO(203, 71, 101, 1)
+      //               : Colors.white,
+      //         ),
+      //       ),
+      //       const Spacer(),
+      //       IconButton(
+      //         onPressed: () {},
+      //         icon: Icon(
+      //           Icons.person,
+      //           color: currentPage == 4
+      //               ? const Color.fromRGBO(203, 71, 101, 1)
+      //               : Colors.white,
+      //         ),
+      //       ),
+      //       const Spacer(),
+      //     ],
+      //   ),
+      // ),
+      bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: Colors.black,
+        selectedItemColor: const Color.fromRGBO(203, 71, 101, 1),
+        unselectedItemColor: Colors.white,
+        onTap: _onItemTapped,
+        currentIndex: currentPage,
+        type: BottomNavigationBarType.fixed,
+        items: const [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: "Home",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.search),
+            label: "Search",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.ondemand_video),
+            label: "Reels",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.favorite_border),
+            label: "Favourites",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+            label: "Profile",
+          ),
+        ],
       ),
     );
   }
