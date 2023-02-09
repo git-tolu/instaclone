@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
+import 'package:gap/gap.dart';
 import 'package:instaclone/status_page.dart';
 import 'utils/appLayout.dart';
 
@@ -165,33 +166,301 @@ class _HomePageState extends State<HomePage> {
                           ],
                         ),
                         const Spacer(),
-                        DropdownButton<String>(
-                          items: const [
-                            DropdownMenuItem(
-                              value: 'item1',
-                              child: Text('Item 1'),
-                            ),
-                            DropdownMenuItem(
-                              value: 'item2',
-                              child: Text('Item 2'),
-                            ),
-                            DropdownMenuItem(
-                              value: 'item3',
-                              child: Text('Item 3'),
-                            ),
-                          ],
-                          onChanged: (value) {
-                            print(value);
-                          },
-                          hint: const Text('Select an item'),
-                        ),
+                        // DropdownButtonHideUnderline(
+                        //   child: DropdownButton<String>(
+                        //     icon: const Icon(
+                        //       Icons.more_vert,
+                        //       color: Colors.white,
+                        //     ),
+
+                        //     items: const [
+                        //       DropdownMenuItem(
+                        //         value: 'item1',
+                        //         child: Text('Item 1'),
+                        //       ),
+                        //       DropdownMenuItem(
+                        //         value: 'item2',
+                        //         child: Text('Item 2'),
+                        //       ),
+                        //       DropdownMenuItem(
+                        //         value: 'item3',
+                        //         child: Text('Item 3'),
+                        //       ),
+                        //     ],
+                        //     onChanged: (value) {
+                        //       print(value);
+                        //     },
+                        //     // hint: const Text('Select an item'),
+                        //   ),
+                        // ),
                         IconButton(
-                          onPressed: () {},
                           icon: const Icon(
                             Icons.more_vert,
                             color: Colors.white,
                           ),
-                        )
+                          onPressed: () {
+                            showModalBottomSheet<void>(
+                              context: context,
+                              builder: (BuildContext context) {
+                                return Container(
+                                  height: AppLayout.GetHeight(500),
+                                  color: Colors.black,
+                                  padding: const EdgeInsets.all(15),
+                                  child: Column(
+                                    children: [
+                                      SizedBox(
+                                        width: AppLayout.GetWidth(80),
+                                        child: const Divider(
+                                          color: Color.fromARGB(
+                                              113, 247, 244, 244),
+                                          thickness: 10,
+                                        ),
+                                      ),
+                                      const Gap(15),
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceEvenly,
+                                        children: [
+                                          Center(
+                                            child: CircleAvatar(
+                                              radius: 22,
+                                              backgroundColor:
+                                                  const Color.fromARGB(
+                                                      113, 247, 244, 244),
+                                              child: CircleAvatar(
+                                                radius: 20,
+                                                backgroundColor: Colors.black,
+                                                child: IconButton(
+                                                  onPressed: () {
+                                                    print('clicked');
+                                                  },
+                                                  icon: const Icon(
+                                                    Icons.share,
+                                                    color: Colors.white,
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                          Center(
+                                            child: CircleAvatar(
+                                              radius: 22,
+                                              backgroundColor:
+                                                  const Color.fromARGB(
+                                                      113, 247, 244, 244),
+                                              child: CircleAvatar(
+                                                radius: 20,
+                                                backgroundColor: Colors.black,
+                                                child: IconButton(
+                                                  onPressed: () {
+                                                    print('clicked');
+                                                  },
+                                                  icon: const Icon(
+                                                    Icons.link_rounded,
+                                                    color: Colors.white,
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                          Center(
+                                            child: CircleAvatar(
+                                              radius: 22,
+                                              backgroundColor:
+                                                  const Color.fromARGB(
+                                                      113, 247, 244, 244),
+                                              child: CircleAvatar(
+                                                radius: 20,
+                                                backgroundColor: Colors.black,
+                                                child: IconButton(
+                                                  onPressed: () {
+                                                    print('clicked');
+                                                  },
+                                                  icon: const Icon(
+                                                    Icons.bookmark_border,
+                                                    color: Colors.white,
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                          Center(
+                                            child: CircleAvatar(
+                                              radius: 22,
+                                              backgroundColor:
+                                                  const Color.fromARGB(
+                                                      113, 247, 244, 244),
+                                              child: CircleAvatar(
+                                                radius: 20,
+                                                backgroundColor: Colors.black,
+                                                child: IconButton(
+                                                  onPressed: () {
+                                                    print('clicked');
+                                                  },
+                                                  icon: const Icon(
+                                                    Icons.add_link_rounded,
+                                                    color: Colors.white,
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                          Center(
+                                            child: CircleAvatar(
+                                              radius: 22,
+                                              backgroundColor:
+                                                  const Color.fromARGB(
+                                                      113, 247, 244, 244),
+                                              child: CircleAvatar(
+                                                radius: 20,
+                                                backgroundColor: Colors.black,
+                                                child: IconButton(
+                                                  onPressed: () {
+                                                    print('clicked');
+                                                  },
+                                                  icon: const Icon(
+                                                    Icons
+                                                        .qr_code_scanner_rounded,
+                                                    color: Colors.white,
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                      const Gap(15),
+                                      const Divider(
+                                        color:
+                                            Color.fromARGB(113, 247, 244, 244),
+                                      ),
+                                      const Gap(15),
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.start,
+                                        children: const [
+                                          Icon(
+                                            Icons.star_border_outlined,
+                                            color: Colors.white,
+                                          ),
+                                          SizedBox(
+                                            width: 10,
+                                          ),
+                                          Text(
+                                            'Add To Favourite',
+                                            style:
+                                                TextStyle(color: Colors.white),
+                                          )
+                                        ],
+                                      ),
+                                      const Gap(30),
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.start,
+                                        children: const [
+                                          Icon(
+                                            Icons.add_link,
+                                            color: Colors.white,
+                                          ),
+                                          SizedBox(
+                                            width: 10,
+                                          ),
+                                          Text(
+                                            'Unfollow',
+                                            style:
+                                                TextStyle(color: Colors.white),
+                                          )
+                                        ],
+                                      ),
+                                      const Gap(25),
+                                      const Divider(
+                                        color:
+                                            Color.fromARGB(113, 247, 244, 244),
+                                      ),
+                                      const Gap(25),
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.start,
+                                        children: const [
+                                          Icon(
+                                            Icons.abc_sharp,
+                                            color: Colors.white,
+                                          ),
+                                          SizedBox(
+                                            width: 10,
+                                          ),
+                                          Text(
+                                            'Manage Captions',
+                                            style:
+                                                TextStyle(color: Colors.white),
+                                          )
+                                        ],
+                                      ),
+                                      const Gap(25),
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.start,
+                                        children: const [
+                                          Icon(
+                                            Icons.info_outline,
+                                            color: Colors.white,
+                                          ),
+                                          SizedBox(
+                                            width: 10,
+                                          ),
+                                          Text(
+                                            "Why you're seeing this post",
+                                            style:
+                                                TextStyle(color: Colors.white),
+                                          )
+                                        ],
+                                      ),
+                                      const Gap(25),
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.start,
+                                        children: const [
+                                          Icon(
+                                            Icons.remove_red_eye,
+                                            color: Colors.white,
+                                          ),
+                                          SizedBox(
+                                            width: 10,
+                                          ),
+                                          Text(
+                                            "Hide",
+                                            style:
+                                                TextStyle(color: Colors.white),
+                                          )
+                                        ],
+                                      ),
+                                      const Gap(25),
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.start,
+                                        children: const [
+                                          Icon(
+                                            Icons.report_outlined,
+                                            color: Colors.white,
+                                          ),
+                                          SizedBox(
+                                            width: 10,
+                                          ),
+                                          Text(
+                                            "Report",
+                                            style:
+                                                TextStyle(color: Colors.white),
+                                          )
+                                        ],
+                                      ),
+                                      const Gap(25),
+                                    ],
+                                  ),
+                                );
+                              },
+                            );
+                          },
+                        ),
                       ],
                     ),
                     // Content post
