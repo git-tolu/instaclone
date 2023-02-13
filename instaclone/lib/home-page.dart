@@ -15,24 +15,44 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   List<String> profileImages = [
-    "images/ariana.jfif",
-    "images/bugattiman.jfif",
-    "images/extopg.jfif",
-    "images/freeg.jfif",
-    "images/selena.jfif",
+    "images/selenagomez.jpg",
+    "images/selenapost.jpg",
+    "images/gomezpost.jpg",
+    "images/sadie1.jpg",
+    "images/sadie2.jpg",
+    "images/sadie3.jpg",
+    "images/araina2.jpg",
+    "images/ariana1.jpg",
+    "images/kehlani.jpg",
+    "images/kehlani2.jpg",
+    "images/riri.jpg",
+    "images/riri2.jpg",
+    "images/ol1.jpg",
     "images/taylor.jpg",
-    "images/zendaya.jfif",
-    "images/topgun.jfif",
+    "images/justinskye.jpg",
+    "images/florencepugh.jpg",
+    "images/fpugh1.jpg",
+    "images/jenniferlawrence.jpg",
   ];
   List<String> postImages = [
-    "images/ariana.jfif",
-    "images/bugattiman.jfif",
-    "images/extopg.jfif",
-    "images/freeg.jfif",
-    "images/selena.jfif",
+    "images/selenagomez.jpg",
+    "images/selenapost.jpg",
+    "images/gomezpost.jpg",
+    "images/sadie1.jpg",
+    "images/sadie2.jpg",
+    "images/sadie3.jpg",
+    "images/araina2.jpg",
+    "images/ariana1.jpg",
+    "images/kehlani.jpg",
+    "images/kehlani2.jpg",
+    "images/riri.jpg",
+    "images/riri2.jpg",
+    "images/ol1.jpg",
     "images/taylor.jpg",
-    "images/zendaya.jfif",
-    "images/topgun.jfif",
+    "images/justinskye.jpg",
+    "images/florencepugh.jpg",
+    "images/fpugh1.jpg",
+    "images/jenniferlawrence.jpg",
   ];
   int colorIndex = 0;
 
@@ -70,19 +90,31 @@ class _HomePageState extends State<HomePage> {
               scrollDirection: Axis.horizontal,
               child: Row(
                 children: List.generate(
-                  8,
+                  17,
                   (index) => Container(
                     padding: const EdgeInsets.all(10),
                     child: Column(
                       children: [
                         InkWell(
                           onTap: () {
-                            Navigator.of(context).push(
-                              MaterialPageRoute(
-                                builder: (BuildContext context) {
-                                  return const StatusPage();
-                                },
-                              ),
+                            // Navigator.of(context).push(
+                            //   MaterialPageRoute(
+                            //     builder: (BuildContext context) {
+                            //       return const StatusPage();
+                            //     },
+                            //   ),
+                            // );
+                            showModalBottomSheet<void>(
+                              isScrollControlled: true,
+                              context: context,
+                              builder: (BuildContext context) {
+                                return Container(
+                                  height: AppLayout.getScreenHeight(),
+                                  color: Colors.black,
+                                  padding: const EdgeInsets.only(top: 30,),
+                                  child: const StatusPage(),
+                                );
+                              },
                             );
                           },
                           child: CircleAvatar(
@@ -117,7 +149,7 @@ class _HomePageState extends State<HomePage> {
             // posts
             Column(
               children: List.generate(
-                8,
+                17,
                 (index) => Column(
                   children: [
                     // HEADER POST
@@ -125,12 +157,23 @@ class _HomePageState extends State<HomePage> {
                       children: [
                         InkWell(
                           onTap: () {
-                            Navigator.of(context).push(
-                              MaterialPageRoute(
-                                builder: (BuildContext context) {
-                                  return const StatusPage();
-                                },
-                              ),
+                            // Navigator.of(context).push(
+                            //   MaterialPageRoute(
+                            //     builder: (BuildContext context) {
+                            //       return const StatusPage();
+                            //     },
+                            //   ),
+                            // );
+                            showModalBottomSheet<void>(
+                              context: context,
+                              builder: (BuildContext context) {
+                                return Container(
+                                  height: AppLayout.getScreenHeight(),
+                                  color: Colors.black,
+                                  padding: const EdgeInsets.all(15),
+                                  child: const StatusPage(),
+                                );
+                              },
                             );
                           },
                           child: Container(
@@ -166,33 +209,6 @@ class _HomePageState extends State<HomePage> {
                           ],
                         ),
                         const Spacer(),
-                        // DropdownButtonHideUnderline(
-                        //   child: DropdownButton<String>(
-                        //     icon: const Icon(
-                        //       Icons.more_vert,
-                        //       color: Colors.white,
-                        //     ),
-
-                        //     items: const [
-                        //       DropdownMenuItem(
-                        //         value: 'item1',
-                        //         child: Text('Item 1'),
-                        //       ),
-                        //       DropdownMenuItem(
-                        //         value: 'item2',
-                        //         child: Text('Item 2'),
-                        //       ),
-                        //       DropdownMenuItem(
-                        //         value: 'item3',
-                        //         child: Text('Item 3'),
-                        //       ),
-                        //     ],
-                        //     onChanged: (value) {
-                        //       print(value);
-                        //     },
-                        //     // hint: const Text('Select an item'),
-                        //   ),
-                        // ),
                         IconButton(
                           icon: const Icon(
                             Icons.more_vert,

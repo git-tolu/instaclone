@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:gap/gap.dart';
 import 'package:instaclone/utils/appLayout.dart';
 
 class StatusPage extends StatefulWidget {
@@ -65,7 +66,88 @@ class _StatusPageState extends State<StatusPage> {
               color: Colors.white,
             ),
             onPressed: () {
-              print("action");
+              showModalBottomSheet<void>(
+                context: context,
+                builder: (BuildContext context) {
+                  return Container(
+                    height: AppLayout.GetHeight(500),
+                    color: Colors.black,
+                    padding: const EdgeInsets.all(15),
+                    child: Column(
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: const [
+                            Icon(
+                              Icons.abc_sharp,
+                              color: Colors.white,
+                            ),
+                            SizedBox(
+                              width: 10,
+                            ),
+                            Text(
+                              'Manage Captions',
+                              style: TextStyle(color: Colors.white),
+                            )
+                          ],
+                        ),
+                        const Gap(25),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: const [
+                            Icon(
+                              Icons.info_outline,
+                              color: Colors.white,
+                            ),
+                            SizedBox(
+                              width: 10,
+                            ),
+                            Text(
+                              "Why you're seeing this post",
+                              style: TextStyle(color: Colors.white),
+                            )
+                          ],
+                        ),
+                        const Gap(25),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: const [
+                            Icon(
+                              Icons.remove_red_eye,
+                              color: Colors.white,
+                            ),
+                            SizedBox(
+                              width: 10,
+                            ),
+                            Text(
+                              "Hide",
+                              style: TextStyle(color: Colors.white),
+                            )
+                          ],
+                        ),
+                        const Gap(25),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: const [
+                            Icon(
+                              Icons.report_outlined,
+                              color: Colors.white,
+                            ),
+                            SizedBox(
+                              width: 10,
+                            ),
+                            Text(
+                              "Report",
+                              style: TextStyle(color: Colors.white),
+                            )
+                          ],
+                        ),
+                        const Gap(25),
+                      ],
+                    ),
+                  );
+                },
+              );
             },
           ),
         ],
